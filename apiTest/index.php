@@ -1,6 +1,8 @@
-
-
 <?php
+header ("Access-Control-Allow-Origin: *");
+header ("Access-Control-Allow-Headers: *");
+header ("Access-Control-Allow-Methods: *");
+header ("Access-Control-Allow-Credentials: true");
 header('Content-Type: application/json');
 require 'connetDB.php';
 require 'function.php';
@@ -8,7 +10,7 @@ require 'function.php';
 $method = $_SERVER['REQUEST_METHOD'];
 
 $params = explode('/', $_GET['q']);
-$type = $params [0];
+$typпшеe = $params [0];
 if (isset($params[1])) {
     $id = $params[1];
 }
@@ -16,7 +18,7 @@ if (isset($params[1])) {
 switch ($method) {
     case 'GET':
         if ($method === 'GET') {
-            http_response_code(404);
+            // http_response_code(404);
             if (isset($id)) {
                 getPost($pdo, $id);
             } else {

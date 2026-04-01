@@ -1,7 +1,7 @@
 <?php 
 
 function getPosts ($pdo) {
-    $stmt = $pdo ->prepare("SELECT * FROM posts");
+    $stmt = $pdo ->prepare("SELECT * FROM posts"); 
     $stmt -> execute();
     $posts = $stmt -> fetchAll(PDO::FETCH_ASSOC);
     echo json_encode($posts);
